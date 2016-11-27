@@ -1,5 +1,9 @@
 #include <Ethernet.h>
 #include <SPI.h>
+#include <dht.h>
+#define dht_dpin 2 //定義訊號要從Pin A0 進來
+
+dht DHT;
 
     byte mac[] = {0x00, 0xAA, 0xBB, 0xCC, 0xDE, 0x02}; // 乙太網路
     IPAddress ip(10,21,10,87); //arduino板子所用網路IP
@@ -37,16 +41,18 @@
     }
 
     void connectToServer() {
-      Serial.println("connecting to server…");
-      if (client.connect(serverName, 80)) {
+      Serial.println("connecting to server...");
+      if (client.connect(serverName, 8086)) {
         //連接server位址+prot
-        Serial.println("making HTTP request…");
+        Serial.println("making HTTP request...");
         String Requesting;
-        String temperature="46";
-        String humidity="95";
-        //int sdata=3333;
+        DHT.read11(dht_dpin);
 
-        Requesting="GET /sqlservertest.php?temperature="+temperature+"&humidity="+humidity+" HTTP/1.1";
+        double temperature=DHT.temperature;
+        double humidity=DHT.humidity;
+        String sdata="ok";//String 需要一個
+
+        Requesting="GET /sqlservertest.php?sdata="+sdata+"&temperature="+temperature+"&humidity="+humidity+" HTTP/1.1";
         client.println(Requesting);
         client.println("HOST: 10.21.10.113");
         client.println();
