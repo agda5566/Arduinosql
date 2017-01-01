@@ -6,7 +6,7 @@
 dht DHT;
 
     byte mac[] = {0x00, 0xAA, 0xBB, 0xCC, 0xDE, 0x02}; // 乙太網路
-    IPAddress ip(10,21,10,87); //arduino板子所用網路IP
+    IPAddress ip(192,168,100,2); //arduino板子所用網路IP
     EthernetClient client; //建立一個連結到客戶端的端口
     char serverName[] = "10.21.10.113";  //伺服器所在ip
 
