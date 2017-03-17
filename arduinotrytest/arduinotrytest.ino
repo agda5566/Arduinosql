@@ -66,7 +66,8 @@ void tch()
   //Serial.print(humidity);
   //Serial.print("% ");
   //Serial.print("temperature = ");
-  double temperature=DHT.temperature;
+  double temperature=0;
+  temperature=DHT.temperature;
   Serial.println(temperature);
   //Serial.print(DHT.temperature);
   //Serial.println("C ");  
