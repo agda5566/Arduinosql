@@ -1,14 +1,18 @@
 #include <dht.h> //DHT函式庫
 #define dht_dpin 2 //溫度資訊從pin2進來
 #include <HX711.h>
-
+#include <Servo.h>
 HX711 hx(9, 10,128,0.00127551);//秤重
 dht DHT;//溫度
+Servo myservo; // 建立Servo物件，控制伺服馬達
 
+  
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   hx.set_offset(41562);
+  
+  myservo.attach(3);
 }
 
 void loop() {
@@ -27,6 +31,12 @@ void loop() {
         break;
       case '3':
         tch();
+        break;
+      case '4':
+        tower();
+        break;
+      case '5':
+        pro();
         break;
       default:
         Serial.println("noononono");
@@ -71,4 +81,11 @@ void tch()
   Serial.println(temperature);
   //Serial.print(DHT.temperature);
   //Serial.println("C ");  
+}
+void tower(){
+  myservo.write(0);
+        
+}
+void pro(){
+  myservo.write(72);
 }
