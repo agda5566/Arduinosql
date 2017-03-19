@@ -2,8 +2,8 @@
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
+  pinMode(8,OUTPUT);
   pinMode(7,OUTPUT);
-  pinMode(6,OUTPUT);
 }
 
 void loop() {
@@ -14,12 +14,12 @@ void loop() {
     switch(a)
     {
       case '1':
-        digitalWrite(7, HIGH);
-        digitalWrite(6, LOW);
+        digitalWrite(8, HIGH);
+        digitalWrite(7, LOW);
         break;
       case '2':
-        digitalWrite(7, LOW);
-        digitalWrite(6, HIGH);
+        digitalWrite(8, LOW);
+        digitalWrite(7, HIGH);
         break;
       default:
         Serial.println("Error");

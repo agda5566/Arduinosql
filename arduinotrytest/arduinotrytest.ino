@@ -13,6 +13,8 @@ void setup() {
   hx.set_offset(41562);
   
   myservo.attach(3);
+  pinMode(8,OUTPUT);
+  pinMode(7,OUTPUT);
 }
 
 void loop() {
@@ -37,6 +39,9 @@ void loop() {
         break;
       case '5':
         pro();
+        break;
+      case '6':
+        zero();
         break;
       default:
         Serial.println("noononono");
@@ -84,8 +89,21 @@ void tch()
 }
 void tower(){
   myservo.write(0);
+  digitalWrite(8, HIGH);
+  digitalWrite(7, LOW);
+  Serial.println("1");
         
 }
 void pro(){
   myservo.write(72);
+  digitalWrite(8, LOW);
+  digitalWrite(7, HIGH);
+  Serial.println("0");
+}
+void zero(){
+  myservo.write(72);
+  digitalWrite(8, LOW);
+  digitalWrite(7, LOW);
+  Serial.println("00");
+  
 }

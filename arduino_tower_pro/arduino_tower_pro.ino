@@ -11,18 +11,18 @@ void loop()
 {
   //int i=0;
   
-  /*for(int i = 0; i <= 72; i+=1){
+  for(int i = 0; i <= 180; i+=1){
     myservo.write(i); // 使用write，傳入角度，從0度轉到180度
     i++;
     delay(20);
-  }*/
-  myservo.write(0);
+  }
+  /*myservo.write(0);
   //delay(20);
-  myservo.write(72);
-  /*for(int i = 72; i >= 0; i-=1){
+  myservo.write(72);*/
+  for(int i = 180; i >= 0; i-=1){
     myservo.write(i);// 使用write，傳入角度，從180度轉到0度
     delay(20);
-  }*/
+  }
   
   //myservo.write(0);
 }
