@@ -1,3 +1,7 @@
+//#include <Stepper.h>
+//#define STEPS 200  //定義步進馬達每圈的步數
+//Stepper stepper(STEPS, 11, 10, 9, 8);
+
 void setup() {
   // put your setup code here, to run once:
   pinMode(4, OUTPUT);
@@ -5,11 +9,14 @@ void setup() {
   pinMode(6, OUTPUT);
   pinMode(7, OUTPUT);
   
+ 
+
 }
 
 void loop() {
   
-  // put your main code here, to run repeatedly:
+
+   //put your main code here, to run repeatedly:
         digitalWrite( 4 , HIGH );
         digitalWrite( 5 , LOW );
         digitalWrite( 6 , LOW );
