@@ -21,7 +21,7 @@ const int stepsPerRevolution = 200;  // change this to fit the number of steps p
 // for your motor
 //馬達速度test
 // initialize the stepper library on pins 8 through 11:
-Stepper myStepper(stepsPerRevolution, 8, 9, 10, 11);
+Stepper myStepper(stepsPerRevolution, 8, 10, 9, 11);
 
 void setup() {
   // set the speed at 60 rpm:
