@@ -1,20 +1,22 @@
 #include <dht.h> //DHT函式庫
-#define dht_dpin 2 //溫度資訊從pin2進來
-#include <HX711.h>
-#include <Servo.h>
-HX711 hx(9, 10,128,0.00127551);//秤重
-dht DHT;//溫度
-Servo myservo; // 建立Servo物件，控制伺服馬達
+#include <HX711.h> //秤重函式庫
+#include <Servo.h> //伺服馬達函式庫
 
+#define dht_dpin 2 //溫度資訊從pin2進來
+HX711 hx(9, 10,128,0.00127551);//秤重精度調整
+dht DHT;//溫度宣告
+Servo myservo; // 建立Servo物件宣告，控制伺服馬達
+
+int val; //存放磁簧感應變數
   
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin(9600);
-  hx.set_offset(41562);
-  
-  myservo.attach(3);
-  pinMode(8,OUTPUT);
-  pinMode(7,OUTPUT);
+  Serial.begin(9600);//初始化通訊孢率
+  hx.set_offset(41562); //重量設定
+  pinMode (5, INPUT) ;// 5pin 設定為輸入
+  myservo.attach(3); //馬達pin 宣告
+  pinMode(8,OUTPUT); //燈號輸出
+  pinMode(7,OUTPUT); //燈號輸出
 }
 
 void loop() {
@@ -42,6 +44,9 @@ void loop() {
         break;
       case '6':
         zero();
+        break;
+      case '7':
+        DoorCheck();
         break;
       default:
         Serial.println("noononono");
@@ -105,5 +110,17 @@ void zero(){
   digitalWrite(8, LOW);
   digitalWrite(7, LOW);
   Serial.println("00");
+  
+}
+void DoorCheck(){
+  val =digitalRead(5);
+  if(val==HIGH)
+  {
+    Serial.println(val);
+  }
+  else
+  {
+    Serial.println(val);  
+  }
   
 }
