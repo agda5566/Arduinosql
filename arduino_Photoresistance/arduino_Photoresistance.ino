@@ -3,7 +3,7 @@ int photocellVal = 0;
 int minLight = 200;
 int ledPin = 9;
 int ledState = 0;
-
+///光敏電阻
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
