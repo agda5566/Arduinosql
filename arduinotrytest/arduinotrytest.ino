@@ -37,7 +37,7 @@ void loop() {
         RedLed(); //紅色燈光，表示裡面有東西
         break;
       case '4':
-        CloseDoor();　//關門
+        CloseDoor();//關門
         break;
       case '5':
         OpenDoor(); //開門
@@ -110,7 +110,7 @@ void Reduction(){
   myservo.write(72);
   digitalWrite(8, LOW);
   digitalWrite(7, LOW);
-  Serial.println("00");
+  Serial.println("0");
   
 }
 void BuleLed(){
