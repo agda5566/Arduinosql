@@ -28,25 +28,25 @@ void loop() {
      switch(a)
      {
       case '1':
-        GetWeigh();
+        GetWeigh(); //抓重量
         break;
       case '2':
-        BuleLed();
+        BuleLed(); //藍色燈光，表示裡面沒有東西
         break;
       case '3':
-        RedLed();
+        RedLed(); //紅色燈光，表示裡面有東西
         break;
       case '4':
-        CloseDoor();
+        CloseDoor();　//關門
         break;
       case '5':
-        OpenDoor();
+        OpenDoor(); //開門
         break;
       case '6':
-        Reduction();
+        Reduction(); //重置燈光和門，回到開啟狀態和關閉燈光
         break;
       case '7':
-        DoorCheck();
+        DoorCheck(); //檢查門有無上鎖
         break;
       default:
         Serial.println("Not effective num");
