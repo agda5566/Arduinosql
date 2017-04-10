@@ -28,34 +28,34 @@ void loop() {
      switch(a)
      {
       case '1':
-        kg();
+        GetWeigh();
         break;
       case '2':
-       rfid();
+        BuleLed();
         break;
       case '3':
-        tch();
+        RedLed();
         break;
       case '4':
-        tower();
+        CloseDoor();
         break;
       case '5':
-        pro();
+        OpenDoor();
         break;
       case '6':
-        zero();
+        Reduction();
         break;
       case '7':
         DoorCheck();
         break;
       default:
-        Serial.println("noononono");
+        Serial.println("Not effective num");
         
      }  
   }
 }
 
-void kg()
+void GetWeigh()
 {
   double sum0=0;
   double sum1=0;
@@ -68,19 +68,21 @@ void kg()
   //Serial.println("ks:"); 
   if(a<1){
     Serial.println("0");
+    //重量小於1直接回傳0
   }
   else{
     Serial.println(a);
   }
-  //delay(500);
+ 
 }
 void rfid()
 {
+  //紅外線Deprecated
   Serial.println("rfid");  
 }
 void tch()
 {
-  
+  //溫度Deprecated
   //Serial.println("tch");
   //double humidity=DHT.humidity;
   //Serial.print(humidity);
@@ -92,27 +94,37 @@ void tch()
   //Serial.print(DHT.temperature);
   //Serial.println("C ");  
 }
-void tower(){
+void CloseDoor(){
+  //關門
   myservo.write(0);
-  digitalWrite(8, HIGH);
-  digitalWrite(7, LOW);
   Serial.println("1");
         
 }
-void pro(){
+void OpenDoor(){
+  //開門
   myservo.write(72);
-  digitalWrite(8, LOW);
-  digitalWrite(7, HIGH);
   Serial.println("0");
 }
-void zero(){
+void Reduction(){
+  
   myservo.write(72);
   digitalWrite(8, LOW);
   digitalWrite(7, LOW);
   Serial.println("00");
   
 }
+void BuleLed(){
+  digitalWrite(8, LOW);
+  digitalWrite(7, HIGH);
+  Serial.println("0");
+}
+void RedLed(){
+  digitalWrite(8, HIGH);
+  digitalWrite(7, LOW);
+  Serial.println("1");
+}
 void DoorCheck(){
+  //檢查門是否關上
   val =digitalRead(5);
   if(val==HIGH)
   {
