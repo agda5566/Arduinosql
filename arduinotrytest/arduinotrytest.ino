@@ -96,18 +96,18 @@ void tch()
 }
 void CloseDoor(){
   //關門
-  myservo.write(0);
+  myservo.write(25);
   Serial.println("1");
         
 }
 void OpenDoor(){
   //開門
-  myservo.write(72);
+  myservo.write(85);
   Serial.println("0");
 }
 void Reduction(){
   
-  myservo.write(72);
+  myservo.write(85);
   digitalWrite(8, LOW);
   digitalWrite(7, LOW);
   Serial.println("0");
